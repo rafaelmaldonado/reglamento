@@ -1,0 +1,389 @@
+ahora probando: Artículo
+entra: Artículo
+ahora probando: 1
+entra: 1
+ahora probando: 
+ no cumple con el pattern
+ahora probando: 
+ no cumple con el pattern
+ahora probando: El
+entra: El
+ahora probando: presente
+entra: presente
+ahora probando: reglamento
+entra: reglamento
+ahora probando: tiene
+entra: tiene
+ahora probando: por
+por no cumple con el pattern
+ahora probando: objeto
+entra: objeto
+ahora probando: regular
+entra: regular
+ahora probando: la
+entra: la
+ahora probando: circulación
+entra: circulación
+ahora probando: de
+entra: de
+ahora probando: peatones
+entra: peatones
+ahora probando: y
+y no cumple con el pattern
+ahora probando: vehículos
+entra: vehículos
+ahora probando: en
+entra: en
+ahora probando: la
+entra: la
+ahora probando: vía
+entra: vía
+ahora probando: pública
+entra: pública
+ahora probando: y
+y no cumple con el pattern
+ahora probando: la
+entra: la
+ahora probando: seguridad
+entra: seguridad
+ahora probando: vial
+entra: vial
+ahora probando: en
+entra: en
+ahora probando: la
+entra: la
+ahora probando: Ciudad
+entra: Ciudad
+ahora probando: de
+entra: de
+ahora probando: México
+entra: México
+ahora probando: 
+ no cumple con el pattern
+ahora probando: 
+ no cumple con el pattern
+ahora probando: Las
+entra: Las
+ahora probando: disposiciones
+entra: disposiciones
+ahora probando: de
+entra: de
+ahora probando: este
+entra: este
+ahora probando: reglamento
+entra: reglamento
+ahora probando: son
+entra: son
+ahora probando: aplicables
+entra: aplicables
+ahora probando: a
+a no cumple con el pattern
+ahora probando: peatones
+entra: peatones
+ahora probando: 
+ no cumple con el pattern
+ahora probando: conductores
+entra: conductores
+ahora probando: 
+ no cumple con el pattern
+ahora probando: pasajeros
+entra: pasajeros
+ahora probando: y
+y no cumple con el pattern
+ahora probando: propietarios
+entra: propietarios
+ahora probando: de
+entra: de
+ahora probando: cualquier
+entra: cualquier
+ahora probando: tipo
+entra: tipo
+ahora probando: de
+entra: de
+ahora probando: vehículo
+entra: vehículo
+ahora probando: matriculado
+entra: matriculado
+ahora probando: en
+entra: en
+ahora probando: el
+entra: el
+ahora probando: país
+país no cumple con el pattern
+ahora probando: o
+o no cumple con el pattern
+ahora probando: el
+entra: el
+ahora probando: extranjero
+entra: extranjero
+ahora probando: y
+y no cumple con el pattern
+ahora probando: que
+entra: que
+ahora probando: circule
+entra: circule
+ahora probando: en
+entra: en
+ahora probando: el
+entra: el
+ahora probando: territorio
+entra: territorio
+ahora probando: de
+entra: de
+ahora probando: la
+entra: la
+ahora probando: Ciudad
+entra: Ciudad
+ahora probando: de
+entra: de
+ahora probando: México
+entra: México
+ahora probando: 
+ no cumple con el pattern
+ahora probando: En
+entra: En
+ahora probando: el
+entra: el
+ahora probando: presente
+entra: presente
+ahora probando: ordenamiento
+entra: ordenamiento
+ahora probando: se
+entra: se
+ahora probando: establecen
+entra: establecen
+ahora probando: las
+entra: las
+ahora probando: normas
+entra: normas
+ahora probando: respecto
+entra: respecto
+ahora probando: a
+a no cumple con el pattern
+ahora probando: sus
+entra: sus
+ahora probando: movimientos
+entra: movimientos
+ahora probando: y
+y no cumple con el pattern
+ahora probando: estacionamiento
+entra: estacionamiento
+ahora probando: 
+ no cumple con el pattern
+ahora probando: en
+entra: en
+ahora probando: observancia
+entra: observancia
+ahora probando: a
+a no cumple con el pattern
+ahora probando: lo
+entra: lo
+ahora probando: establecido
+entra: establecido
+ahora probando: en
+entra: en
+ahora probando: las
+entra: las
+ahora probando: leyes
+entra: leyes
+ahora probando: 
+ no cumple con el pattern
+ahora probando: reglamentos
+entra: reglamentos
+ahora probando: 
+ no cumple con el pattern
+ahora probando: acuerdos
+entra: acuerdos
+ahora probando: 
+ no cumple con el pattern
+ahora probando: decretos
+entra: decretos
+ahora probando: y
+y no cumple con el pattern
+ahora probando: normatividad
+entra: normatividad
+ahora probando: local
+entra: local
+ahora probando: vigente
+entra: vigente
+ahora probando: 
+ no cumple con el pattern
+ahora probando: así
+así no cumple con el pattern
+ahora probando: como
+entra: como
+ahora probando: las
+entra: las
+ahora probando: maniobras
+entra: maniobras
+ahora probando: de
+entra: de
+ahora probando: ascenso
+entra: ascenso
+ahora probando: y
+y no cumple con el pattern
+ahora probando: descenso
+entra: descenso
+ahora probando: de
+entra: de
+ahora probando: pasajeros
+entra: pasajeros
+ahora probando: o
+o no cumple con el pattern
+ahora probando: de
+entra: de
+ahora probando: carga
+entra: carga
+ahora probando: y
+y no cumple con el pattern
+ahora probando: descarga
+entra: descarga
+ahora probando: 
+ no cumple con el pattern
+ahora probando: De
+entra: De
+ahora probando: igual
+entra: igual
+ahora probando: forma
+entra: forma
+ahora probando: 
+ no cumple con el pattern
+ahora probando: determina
+entra: determina
+ahora probando: las
+entra: las
+ahora probando: condiciones
+entra: condiciones
+ahora probando: legales
+entra: legales
+ahora probando: y
+y no cumple con el pattern
+ahora probando: de
+entra: de
+ahora probando: seguridad
+entra: seguridad
+ahora probando: a
+a no cumple con el pattern
+ahora probando: las
+entra: las
+ahora probando: que
+entra: que
+ahora probando: se
+entra: se
+ahora probando: deben
+entra: deben
+ahora probando: ajustar
+entra: ajustar
+ahora probando: los
+entra: los
+ahora probando: vehículos
+entra: vehículos
+ahora probando: y
+y no cumple con el pattern
+ahora probando: sus
+entra: sus
+ahora probando: conductores
+entra: conductores
+ahora probando: para
+para no cumple con el pattern
+ahora probando: su
+entra: su
+ahora probando: circulación
+entra: circulación
+ahora probando: 
+ no cumple con el pattern
+ahora probando: 
+ no cumple con el pattern
+ahora probando: En
+entra: En
+ahora probando: todo
+entra: todo
+ahora probando: lo
+entra: lo
+ahora probando: no
+entra: no
+ahora probando: previsto
+entra: previsto
+ahora probando: en
+entra: en
+ahora probando: el
+entra: el
+ahora probando: presente
+entra: presente
+ahora probando: ordenamiento
+entra: ordenamiento
+ahora probando: 
+ no cumple con el pattern
+ahora probando: se
+entra: se
+ahora probando: aplicará
+entra: aplicará
+ahora probando: de
+entra: de
+ahora probando: manera
+entra: manera
+ahora probando: supletoria
+entra: supletoria
+ahora probando: las
+entra: las
+ahora probando: disposiciones
+entra: disposiciones
+ahora probando: contenidas
+entra: contenidas
+ahora probando: en
+entra: en
+ahora probando: la
+entra: la
+ahora probando: Ley
+entra: Ley
+ahora probando: de
+entra: de
+ahora probando: Movilidad
+entra: Movilidad
+ahora probando: del
+entra: del
+ahora probando: Distrito
+entra: Distrito
+ahora probando: Federal
+entra: Federal
+ahora probando: 
+ no cumple con el pattern
+ahora probando: en
+entra: en
+ahora probando: la
+entra: la
+ahora probando: Ley
+entra: Ley
+ahora probando: de
+entra: de
+ahora probando: Cultura
+entra: Cultura
+ahora probando: Cívica
+entra: Cívica
+ahora probando: del
+entra: del
+ahora probando: Distrito
+entra: Distrito
+ahora probando: Federal
+entra: Federal
+ahora probando: y
+y no cumple con el pattern
+ahora probando: en
+entra: en
+ahora probando: los
+entra: los
+ahora probando: programas
+entra: programas
+ahora probando: ambientales
+entra: ambientales
+ahora probando: y
+y no cumple con el pattern
+ahora probando: de
+entra: de
+ahora probando: seguridad
+entra: seguridad
+ahora probando: vial
+entra: vial
+ahora probando: 
+ no cumple con el pattern
+Total: 153
