@@ -27,7 +27,7 @@ function insertPalabras(){
 			total_words.push(article_words[group][word]);
 	//console.log(total_words);
 	console.log('total words: ' + total_words.length);
-	var filtered_words = [''];
+	var filtered_words = [];
 	console.log('start filtering words...');
 	var is_new = false;
 	for (var i in total_words){
@@ -49,7 +49,7 @@ function insertPalabras(){
 			if (is_new)
 				filtered_words.push(total_words[i]);
 	}
-	console.log(filtered_words);
+//	console.log(filtered_words);
 	console.log('final count of words: ' + filtered_words.length);
 }
 
