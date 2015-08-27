@@ -29,17 +29,27 @@ function insertPalabras(){
 	console.log('total words: ' + total_words.length);
 	var filtered_words = [''];
 	console.log('start filtering words...');
+	var is_new = false;
 	for (var i in total_words){
-		for (var j = 0; j < total_words.length; j++){
-			if (total_words[j] == filtered_words[i]){
-				break;
-			} else {
-				filtered_words.push(total_words[j]);
-				break;
-			}
-		}
+		for (var j in total_words)
+			if (i != j)
+				if (total_words[i] == total_words[j]){
+					is_new = false;
+					break;
+				}
+				else
+					is_new = true;
+			else
+				if (total_words[i] == total_words[j]){
+					is_new = true;
+					break;
+				}
+				else
+					is_new = false;
+			if (is_new)
+				filtered_words.push(total_words[i]);
 	}
-//	console.log(filtered_words);
+	console.log(filtered_words);
 	console.log('final count of words: ' + filtered_words.length);
 }
 
