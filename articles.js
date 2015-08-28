@@ -18,7 +18,6 @@ for (file in files){
 	var temp = files[file].split('.');
 	temp = temp[0].split('_');
 	var id = temp[1];
-	console.log(id);
 	queries += 'INSERT INTO articulo(id, texto) VALUES(' + id + ',\'' + article + '\'); ';
 }
 connection.query(queries, function (err, rows){
