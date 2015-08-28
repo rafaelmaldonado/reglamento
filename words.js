@@ -4,7 +4,6 @@ var mysql = require('mysql');
 var path = './articles/';
 var files = fs.readdirSync(path);
 
-
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
