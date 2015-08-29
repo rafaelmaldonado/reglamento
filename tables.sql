@@ -1,3 +1,0 @@
-create table articulo(id int primary key, texto text) engine=innodb;
-create table palabra(id int primary key auto_increment, palabra varchar(50)) engine=innodb;
-create table articulo_palabra(id int primary key auto_increment, id_articulo int, id_palabra int, incidencias int, foreign key (id_articulo) references articulo(id) on update cascade on delete cascade, foreign key (id_palabra) references palabra(id) on update cascade on delete cascade)engine=innodb;
