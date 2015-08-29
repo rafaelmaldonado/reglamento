@@ -26,8 +26,6 @@ function startQuerying(i){
 for (var i = 1; i <= 70; i++)
 	startQuerying(i);
 
-//startQuerying(3);
-
 function processWordsFromArticle(article){
 	var result = article['texto'].split(/[\r|\n|.|,|\s|:|;|“|/|”]/);
 	var pattern = new RegExp(['^\s*$|\\blas\\b|\\blos\\b|\\bel\\b|\\bla\\b|\\by\\b|\\ba\\b|\\bante\\b|\\bbajo\\b|\\bcon\\b',
@@ -93,7 +91,6 @@ function getWordsIds(article_id, words_counted){
 			if (err)
 				throw err;
 			insertWordsArticle(article_id, rows[0].id, words_counted.incidents);
-			//console.log(article_id, rows[0].id, words_counted.incidents);
 		});
 	});
 }
