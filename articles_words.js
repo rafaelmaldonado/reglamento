@@ -2,7 +2,7 @@ var mysql = require ('mysql');
 
 var pool = mysql.createPool({
 	host: 'localhost',
-	password: 'safe',
+	password: 'b166er',
 	user: 'root',
 	database: 'reglamento',
 	multipleStatements: true
@@ -46,34 +46,25 @@ function processWordsFromArticle(article){
 	}
 
 	var words_counted = [];
-	var is_new = false;
-	for (var i in words){
-		var counter = 1;
-		for (var j in words)
+	var is_new;
+	for (i in words){
+		is_new = true;
+		for (j in words)
 			if (i != j)
-				if (words[i] == words[j]){
+				if (words[i] == words[j])
 					is_new = false;
-					counter++;
-					break;
-				}
-				else
-					is_new = true;
-			else
-				if (words[i] == words[j]){
-					is_new = true;
-					break;
-				} else {
-					is_new = false;
-					counter++;
-				}
 		if (is_new)
-			words_counted.push({word: words[i], incidents: counter});
-		else
-			for (var c in words_counted)
-				if (words_counted[c].word == words[i]){
-					words_counted[c].incidents = counter;
-					break;
+			words_counted.push({ word: words[i], incidents: 1});
+		else{
+			is_new = true;
+			for (count in words_counted)
+				if (words_counted[count].word == words[i]){
+					words_counted[count].incidents += 1;
+					is_new = false;
 				}
+			if (is_new)
+				words_counted.push({ word: words[i], incidents: 1});
+		}
 	}
 
 	for (i in words_counted)
