@@ -9,7 +9,7 @@
   "author": "Rafael Maldonado",
   "license": "ISC",
   "dependencies": {
-    "fs": "0.0.2",
+    "express": "^4.13.3",
     "mysql": "^2.9.0"
   }
 }
