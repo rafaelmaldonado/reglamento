@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var home = require('./controllers/home');
 var list = require('./controllers/list');
 var article = require('./controllers/article');
+var search = require('./controllers/search');
 
 var ExpressServer = function(config){
     config = config || {};
@@ -13,6 +14,10 @@ var ExpressServer = function(config){
     this.expressServer.engine('html', swig.renderFile);
     this.expressServer.set('view engine', 'html');
     this.expressServer.set('views', __dirname + '/views');
+    this.expressServer.use(bodyParser.json());
+    this.expressServer.use(bodyParser.urlencoded({
+        extended: true
+    }));
     swig.setDefaults({varControls:['[[',']]']});
 
     if(config.mode == 'development'){
@@ -26,7 +31,7 @@ var ExpressServer = function(config){
     });
 
     this.expressServer.post('/search', function (req, res){
-        res.send('estamos en search');
+        search(req, res);
     });
 };
 
