@@ -1,3 +1,12 @@
+var model = require('../models/search.js');
 module.exports = function (req, res){
-	res.send(req.body.search);
+	var words = [];
+	var list;
+	words = (req.body.search).split(' ');
+	model(words, function(callback){
+		if (callback.length == 0)
+			res.render('../views/list', {list: 'No hay resultados para tu búsqueda'});
+		else
+			res.render('../views/list', {list: callback});
+	});
 }
