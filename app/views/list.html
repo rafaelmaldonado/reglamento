@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-[[list]]
+<ul>
+{% for item in list %}
+	<li><a href="reglamento-transito-distrito-federal-articulo-[[item.id]].html">Artículo [[item.id]]</a></li>
+{% endfor %}
+</ul>
+[[empty]]
 {% endblock %}
