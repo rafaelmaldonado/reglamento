@@ -3,7 +3,10 @@
 {% block content %}
 <ul>
 {% for item in list %}
-	<li><a href="reglamento-transito-distrito-federal-articulo-[[item.id]].html">Artículo [[item.id]]</a></li>
+	<li>
+		<a href="reglamento-transito-distrito-federal-articulo-[[item.id]].html">Artículo [[item.id]]</a>
+		<span>{% autoescape false %} [[item.text]] {% endautoescape %}</span>
+	</li>
 {% endfor %}
 </ul>
 [[empty]]
