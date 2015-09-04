@@ -2,7 +2,6 @@ var express = require('express');
 var swig = require('swig');
 var bodyParser = require('body-parser');
 var home = require('./controllers/home');
-var list = require('./controllers/list');
 var article = require('./controllers/article');
 var search = require('./controllers/search');
 
@@ -27,5 +26,8 @@ module.exports =  ExpressServer = function(config){
     });
     this.expressServer.post('/search', function (req, res){
         search(req, res);
+    });
+    this.expressServer.get('/article:article', function (req, res){
+        article(req, res);
     });
 };

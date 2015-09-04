@@ -6,7 +6,6 @@ var pool = mysql.createPool({
 	database: 'reglamento',
 	multipleStatements: true
 });
-
 module.exports = function(words, callback){
 	pool.getConnection(function(err, connection){
 		if (err){
