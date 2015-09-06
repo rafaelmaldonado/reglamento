@@ -14,7 +14,11 @@ module.exports = function(words, offset, callback){
 		}
 		var words_select = '(';
 		for (i in words){
-			words_select += 'p.palabra = \'' + words[i] + '\'';
+			if ((/[0-9]+/).test(words[i])){
+				words_select += 'a.id = ' + words[i] + ' OR ';
+				words_select += 'p.palabra = \'' + words[i] + '\'';
+			} else
+				words_select += 'p.palabra = \'' + words[i] + '\'';
 			if (i < words.length - 1)
 				words_select += ' OR ';
 		}
