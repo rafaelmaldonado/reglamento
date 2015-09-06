@@ -25,6 +25,7 @@ module.exports = function (req, res){
 						}
 					}
 				}
+				positions = orderPositions(positions);
 				positions = findShortestDistance(positions);
 				for (var i = 0; i < positions.length; i++){
 					var init = 0, end = 0;
@@ -48,7 +49,7 @@ module.exports = function (req, res){
 					}
 					if (more_text)
 						resume.push('...');
-				result[element] = {text: resume.join(' '), id: callback[element].id};
+					result[element] = {text: resume.join(' '), id: callback[element].id};
 				}
 			}
 		}
@@ -90,6 +91,20 @@ module.exports = function (req, res){
 			return findShortestDistance(b);
 		else
 			return b;
+	}
+
+	function orderPositions(a){
+		var aux;
+		for (var i = 0; i < a.length; i++){
+			for (var j = 0; j < a.length; j++){
+				if (a[i] < a[j]){
+					aux = a[i];
+					a[i] = a[j];
+					a[j] = aux;
+				}
+			}
+		}
+		return a;
 	}
 
 }
