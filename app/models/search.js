@@ -23,7 +23,7 @@ module.exports = function(words, offset, callback){
 				words_select += ' OR ';
 		}
 		words_select += ')';
-		var query = 'SELECT a.id AS id, a.texto as text FROM articulo a, articulo_palabra ap, palabra p WHERE a.id = ap.id_articulo AND ap.id_palabra = p.id AND ' + words_select + ' GROUP BY id ORDER BY SUM(ap.incidencias) DESC LIMIT 6 OFFSET ' + offset + ';';
+		var query = 'SELECT a.id AS id, IF (COUNT(ap.id) > 1, COUNT(ap.id) * 10 + SUM(ap.incidencias), SUM(ap.incidencias)) AS points, a.texto as text FROM articulo a, articulo_palabra ap, palabra p WHERE a.id = ap.id_articulo AND ap.id_palabra = p.id AND ' + words_select + ' GROUP BY id ORDER BY points DESC LIMIT 6 OFFSET ' + offset + ';';
 		connection.query(query, function(err, rows){
 			connection.release();
 			if (err)
