@@ -21,25 +21,26 @@ module.exports = function (req, res){
 						var re = new RegExp(normalize(words[i]), 'i');
 						if (re.test(normalize(filtered[j]))){
 							filtered[j] = '<b>' + filtered[j] + '</b>';
-							positions.push(j);
+							positions.push({position: j, word: words[i]});
 						}
 					}
 				}
 				positions = orderPositions(positions);
 				positions = findShortestDistance(positions);
+				console.log(positions);
 				for (var i = 0; i < positions.length; i++){
 					var init = 0, end = 0;
 					var more_text = false;
-					if (positions[i] - 10 > 0){
-						init = positions[i] - 10;
+					if (positions[i].position - 10 > 0){
+						init = positions[i].position - 10;
 						if (resume[resume.length - 1] != '...')
 							resume.push('...');
 					} else {
 						init = 2;
 					}
-					if (positions[i] + 10 < filtered.length){
+					if (positions[i].position + 10 < filtered.length){
 						more_text = true;
-						end = positions[i] + 10;
+						end = positions[i].position + 10;
 					} else {
 						end = filtered.length;
 					}
@@ -76,17 +77,30 @@ module.exports = function (req, res){
 		var b = [];
 		var again = false;
 		for (var i = 0; i < a.length; i++){
-			if (a[i + 1] - a[i] < 10){
-				new_position = Math.floor(((a[i + 1] - a[i]) / 2) + Math.floor(a[i]));
-				b.push(new_position);
-				i++;
-			} else {
-				b.push(a[i]);
-			}
+			if (i + 1 < a.length)
+				if (a[i + 1].position - a[i].position < 10){
+					new_position = Math.floor(((a[i + 1].position - a[i].position) / 2) + Math.floor(a[i].position));
+					b.push({position: new_position, word: a[i].word});
+					i++;
+				} else {
+					b.push({position: a[i].position, word: a[i].word});
+				}
+			else
+				if (a[a.length - 1].position - a[i].position < 10){
+					new_position = Math.floor(((a[a.length - 1].position - a[i].position) / 2) + Math.floor(a[i].position));
+					b.push({position: new_position, word: a[i].word});
+					i++;
+				} else {
+					b.push({position: a[i].position, word: a[i].word});
+				}
 		}
 		for (var i = 0; i < b.length; i++)
-			if (a[i + 1] - a[i] < 10)
-				again = true;
+			if (i + 1 < a.length)
+				if (a[i + 1].position - a[i].position < 10)
+					again = true;
+			else
+				if (a[a.length - 1].position - a[i].position < 10)
+					again = true;
 		if (again)
 			return findShortestDistance(b);
 		else
@@ -97,7 +111,7 @@ module.exports = function (req, res){
 		var aux;
 		for (var i = 0; i < a.length; i++){
 			for (var j = 0; j < a.length; j++){
-				if (a[i] < a[j]){
+				if (a[i].position < a[j].position){
 					aux = a[i];
 					a[i] = a[j];
 					a[j] = aux;
