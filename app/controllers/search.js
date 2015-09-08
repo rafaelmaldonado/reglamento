@@ -27,7 +27,7 @@ module.exports = function (req, res){
 				}
 				positions = orderPositions(positions);
 				positions = findShortestDistance(positions);
-				console.log(positions);
+				positions = getReducedResume(positions);
 				for (var i = 0; i < positions.length; i++){
 					var init = 0, end = 0;
 					var more_text = false;
@@ -76,49 +76,86 @@ module.exports = function (req, res){
 	function findShortestDistance(a){
 		var b = [];
 		var again = false;
-		for (var i = 0; i < a.length; i++){
-			if (i + 1 < a.length)
-				if (a[i + 1].position - a[i].position < 10){
-					new_position = Math.floor(((a[i + 1].position - a[i].position) / 2) + Math.floor(a[i].position));
-					b.push({position: new_position, word: a[i].word});
+		var limit;
+		if (a.length > 1){
+			for (var i = 0; i < a.length; i++){
+				if (i + 1 < a.length)
+					limit = i + 1;
+				else
+					limit = a.length - 1;
+				if (a[limit].position - a[i].position < 10){
+					new_position = Math.floor(((a[limit].position - a[i].position) / 2) + Math.floor(a[i].position));
+					b.push({position: new_position, word: a[i].word + ',' + a[limit].word});
 					i++;
-				} else {
+				} else
 					b.push({position: a[i].position, word: a[i].word});
+			}
+			for (var i = 0; i < b.length; i++){
+				if (i + 1 < b.length){
+					limit = i + 1;
+					init = i;
+				} else {
+					limit = b.length - 1;
+					init = i - 1;
 				}
+				if (b[limit].position - b[init].position < 10)
+					again = true;
+			}
+			if (again)
+				return findShortestDistance(b);
 			else
-				if (a[a.length - 1].position - a[i].position < 10){
-					new_position = Math.floor(((a[a.length - 1].position - a[i].position) / 2) + Math.floor(a[i].position));
-					b.push({position: new_position, word: a[i].word});
-					i++;
-				} else {
-					b.push({position: a[i].position, word: a[i].word});
-				}
+				return b;
 		}
-		for (var i = 0; i < b.length; i++)
-			if (i + 1 < a.length)
-				if (a[i + 1].position - a[i].position < 10)
-					again = true;
-			else
-				if (a[a.length - 1].position - a[i].position < 10)
-					again = true;
-		if (again)
-			return findShortestDistance(b);
-		else
-			return b;
+		return a;
 	}
 
 	function orderPositions(a){
 		var aux;
-		for (var i = 0; i < a.length; i++){
-			for (var j = 0; j < a.length; j++){
+		for (var i = 0; i < a.length; i++)
+			for (var j = 0; j < a.length; j++)
 				if (a[i].position < a[j].position){
 					aux = a[i];
 					a[i] = a[j];
 					a[j] = aux;
 				}
-			}
-		}
 		return a;
 	}
 
+	function getReducedResume(a){
+		var complete;
+		var words_result;
+		var found_complete;
+		var top_1 = [];
+		var top_2 = [];
+		var top_count = 0;
+		var b = [];
+		if (a.length > 1){
+			for (var i = 0; i < a.length; i++){
+				complete = 0;
+				words_result = a[i].word.split(',');
+				for (var j = 0; j < words.length; j++){
+					found_complete = false;
+					for (var k = 0; k < words_result.length; k++)
+						if (words[j] == words_result[k]){
+							if (!found_complete)
+								complete++;
+							found_complete = true;
+						}
+				}
+				if (complete == words.length && b.length < 2)
+					b.push(a[i]);
+				else if(a[i].word.split(',').length > top_count){
+					top_count = a[i].word.split(',').length;
+					top_2 = top_1;
+					top_1 = a[i];
+				}
+			}
+			if (b.length < 2)
+				b.push(top_1);
+			if (b.length < 2 && top_2.word.length > 0)
+				b.push(top_2);
+			return b;
+		}
+		return a;
+	}
 }
