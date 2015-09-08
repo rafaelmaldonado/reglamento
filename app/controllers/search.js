@@ -35,15 +35,13 @@ module.exports = function (req, res){
 						init = positions[i].position - 10;
 						if (resume[resume.length - 1] != '...')
 							resume.push('...');
-					} else {
+					} else
 						init = 2;
-					}
 					if (positions[i].position + 10 < filtered.length){
 						more_text = true;
 						end = positions[i].position + 10;
-					} else {
+					} else
 						end = filtered.length;
-					}
 					while (init < end){
 						resume.push(filtered[init]);
 						init++;
@@ -90,21 +88,24 @@ module.exports = function (req, res){
 				} else
 					b.push({position: a[i].position, word: a[i].word});
 			}
-			for (var i = 0; i < b.length; i++){
-				if (i + 1 < b.length){
-					limit = i + 1;
-					init = i;
-				} else {
-					limit = b.length - 1;
-					init = i - 1;
+			if (b.length > 1){
+				for (var i = 0; i < b.length; i++){
+					if (i + 1 < b.length){
+						limit = i + 1;
+						init = i;
+					} else {
+						limit = b.length - 1;
+						init = i - 1;
+					}
+					if (b[limit].position - b[init].position < 10)
+						again = true;
 				}
-				if (b[limit].position - b[init].position < 10)
-					again = true;
+				if (again)
+					return findShortestDistance(b);
+				else
+					return b;
 			}
-			if (again)
-				return findShortestDistance(b);
-			else
-				return b;
+			return b;
 		}
 		return a;
 	}
@@ -152,7 +153,7 @@ module.exports = function (req, res){
 			}
 			if (b.length < 2)
 				b.push(top_1);
-			if (b.length < 2 && top_2.word.length > 0)
+			if (b.length < 2 && top_2.length > 0)
 				b.push(top_2);
 			return b;
 		}
