@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var home = require('./controllers/home');
 var article = require('./controllers/article');
 var search = require('./controllers/search');
+var error = require('./controllers/error');
 
 module.exports =  ExpressServer = function(config){
     config = config || {};
@@ -29,5 +30,8 @@ module.exports =  ExpressServer = function(config){
     });
     this.expressServer.get('/article:article', function (req, res){
         article(req, res);
+    });
+    this.expressServer.get('*', function (req, res){
+        error(req, res);
     });
 };

@@ -8,7 +8,10 @@ module.exports = function (req, res){
 	else
 		page = 0;
 	offset = page * 5;
-	words = (req.query.q).split(' ');
+	if (req.query.q && (req.query.q).length > 0)
+		words = (req.query.q).split(' ');
+	else
+		words = ['error'];
 	model(words, offset, function(callback){
 		var result = [];
 		for (var element in callback){
