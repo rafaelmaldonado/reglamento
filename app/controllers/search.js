@@ -1,16 +1,27 @@
 var model = require('../models/search.js');
 module.exports = function (req, res){
 	var words = [];
+	var words_user = [];
 	var offset;
 	var page;
+	var pattern = new RegExp(['^\s*$|\\blas\\b|\\blos\\b|\\bel\\b|\\bla\\b|\\by\\b|\\ba\\b|\\bante\\b|\\bbajo\\b|\\bcon\\b',
+        '|\\bde\\b|\\bdesde\\b|\\ben\\b|\\bpara\\b|\\bpor\\b|\\bsalvo\\b|\\bsegún\\b|\\bsin\\b|\\btras\\b|\\bo\\b|\\bde\\b',
+        '|\\bdel\\b|\\bsu\\b|\\bsus\\b|\\bque\\b|\\bse\\b|\\blo\\b|\\bcomo\\b|\\basí\\b|\\bson\\b|\\btiene\\b|\\beste\\b',
+        '|\\bestos\\b|\\bun\\b|\\buna\\b|\\bunos\\b|\\bunas\\b|^-*$|\\bal\\b|\\be\\b|\\bes\\b|\\bsea\\b|\\bsean\\b|\\bu\\b',
+        '|\\basí\\b|\\bésta\\b|\\béstas\\b|\\ble\\b|\\bese\\b|\\besa\\b'].join(''));
 	if (req.query.p)
 		page = req.query.p;
 	else
 		page = 0;
 	offset = page * 5;
-	if (req.query.q && (req.query.q).length > 0)
-		words = (req.query.q).split(' ');
-	else
+	if (req.query.q && (req.query.q).length > 0){
+		words_user = (req.query.q).split(' ');
+		for (var i in words_user)
+			if (!pattern.test(words_user[i]))
+				words.push(words_user[i]);
+		if (words.length < 1)
+			words = ['error'];
+	} else
 		words = ['error'];
 	model(words, offset, function(callback){
 		var result = [];
