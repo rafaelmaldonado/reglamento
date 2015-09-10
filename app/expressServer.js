@@ -28,7 +28,7 @@ module.exports =  ExpressServer = function(config){
     this.expressServer.get('/search', function (req, res){
         search(req, res);
     });
-    this.expressServer.get('/article:article', function (req, res){
+    this.expressServer.get('/article/:article', function (req, res){
         article(req, res);
     });
     this.expressServer.get('*', function (req, res){
