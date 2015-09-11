@@ -6,5 +6,5 @@ var app = new expressServer();
 
 var server = http.createServer(app.expressServer);
 server.listen(config.port, function(){
-	console.log('app running on port ' + config.port);
+	console.log('app running on port: ' + config.port);
 });

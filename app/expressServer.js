@@ -3,6 +3,8 @@ var swig = require('swig');
 var bodyParser = require('body-parser');
 var home = require('./controllers/home');
 var article = require('./controllers/article');
+var logger = require('../utils/logger.js');
+var morgan = require('morgan');
 var search = require('./controllers/search');
 var error = require('./controllers/error');
 
@@ -16,6 +18,7 @@ module.exports =  ExpressServer = function(config){
     this.expressServer.use(bodyParser.urlencoded({
         extended: true
     }));
+    this.expressServer.use(morgan('combined'));
     swig.setDefaults({varControls:['[[',']]']});
     if(config.mode == 'development'){
         console.log('no cache');
