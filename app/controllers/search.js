@@ -19,6 +19,8 @@ module.exports = function (req, res){
 		for (var i in words_user)
 			if (!pattern.test(words_user[i]))
 				words.push(words_user[i]);
+			else if (pattern.exec(words_user[i]) != words_user[i])
+				words.push(words_user[i]);
 		if (words.length < 1)
 			words = ['error'];
 	} else
