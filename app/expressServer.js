@@ -1,12 +1,12 @@
 var express = require('express');
 var swig = require('swig');
 var bodyParser = require('body-parser');
+var morgan = require('morgan');
 var home = require('./controllers/home');
 var article = require('./controllers/article');
-var logger = require('../utils/logger.js');
-var morgan = require('morgan');
 var search = require('./controllers/search');
 var error = require('./controllers/error');
+var logger = require('../utils/logger.js');
 
 module.exports =  ExpressServer = function(config){
     config = config || {};
@@ -18,10 +18,9 @@ module.exports =  ExpressServer = function(config){
     this.expressServer.use(bodyParser.urlencoded({
         extended: true
     }));
-    this.expressServer.use(morgan('combined'));
+    this.expressServer.use(morgan('combined', {stream: logger.stream}));
     swig.setDefaults({varControls:['[[',']]']});
     if(config.mode == 'development'){
-        console.log('no cache');
         this.expressServer.set('view cache', false);
         swig.setDefaults({cache: false, varControls:['[[',']]']});
     }
