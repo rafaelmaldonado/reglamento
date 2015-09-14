@@ -4,13 +4,16 @@ module.exports = function (req, res){
 	var words_user = [];
 	var offset;
 	var page;
+	var next;
+	var hasnext = false;
+	var prev;
 	var pattern = new RegExp(['^\s*$|\\blas\\b|\\blos\\b|\\bel\\b|\\bla\\b|\\by\\b|\\ba\\b|\\bante\\b|\\bbajo\\b|\\bcon\\b',
         '|\\bde\\b|\\bdesde\\b|\\ben\\b|\\bpara\\b|\\bpor\\b|\\bsalvo\\b|\\bsegún\\b|\\bsin\\b|\\btras\\b|\\bo\\b|\\bde\\b',
         '|\\bdel\\b|\\bsu\\b|\\bsus\\b|\\bque\\b|\\bse\\b|\\blo\\b|\\bcomo\\b|\\basí\\b|\\bson\\b|\\btiene\\b|\\beste\\b',
         '|\\bestos\\b|\\bun\\b|\\buna\\b|\\bunos\\b|\\bunas\\b|^-*$|\\bal\\b|\\be\\b|\\bes\\b|\\bsea\\b|\\bsean\\b|\\bu\\b',
         '|\\basí\\b|\\bésta\\b|\\béstas\\b|\\ble\\b|\\bese\\b|\\besa\\b'].join(''));
 	if (req.query.p)
-		page = req.query.p;
+		page = Math.floor(req.query.p);
 	else
 		page = 0;
 	offset = page * 5;
@@ -68,15 +71,13 @@ module.exports = function (req, res){
 				}
 			}
 		}
+		prev = page - 1;
+		next = page + 1;
 		if (callback.length == 0)
 			res.render('../views/search', {empty: 'No hay resultados para tu búsqueda'});
-		else {
-			if (callback.length > 5){
-				page++;
-				res.render('../views/search', {list: result, next: page, query: req.query.q});
-			} else
-				res.render('../views/search', {list: result});
-		}
+		else if (callback.length > 5)
+			hasnext = true;
+		res.render('../views/search', {list: result, hasnext: hasnext, prev: prev, next: next, query: req.query.q});
 	});
 
 	function normalize (text){

@@ -10,7 +10,10 @@
 {% endfor %}
 </ul>
 [[empty]]
-{% if next %}
+{% if prev >= 0 %}
+	<a href="/search?q=[[query]]&p=[[prev]]"><</a>
+{% endif %}
+{% if hasnext %}
 	<a href="/search?q=[[query]]&p=[[next]]">Siguiente</a>
 {% endif %}
 {% endblock %}
