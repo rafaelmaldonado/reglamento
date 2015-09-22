@@ -5,7 +5,6 @@ module.exports = function (req, res){
 	var offset;
 	var page;
 	var next;
-	var hasnext = false;
 	var prev;
 	var pattern = new RegExp(['^\s*$|\\blas\\b|\\blos\\b|\\bel\\b|\\bla\\b|\\by\\b|\\ba\\b|\\bante\\b|\\bbajo\\b|\\bcon\\b',
         '|\\bde\\b|\\bdesde\\b|\\ben\\b|\\bpara\\b|\\bpor\\b|\\bsalvo\\b|\\bsegún\\b|\\bsin\\b|\\btras\\b|\\bo\\b|\\bde\\b',
@@ -76,8 +75,9 @@ module.exports = function (req, res){
 		if (callback.length == 0)
 			res.render('../views/search', {empty: 'No hay resultados para tu búsqueda'});
 		else if (callback.length > 5)
-			hasnext = true;
-		res.render('../views/search', {list: result, hasnext: hasnext, prev: prev, next: next, query: req.query.q});
+			res.render('../views/search', {list: result, hasnext: true, prev: prev, next: next, query: req.query.q});
+		else
+			res.render('../views/search', {list: result, hasnext: false, prev: prev, next: next, query: req.query.q});
 	});
 
 	function normalize (text){
