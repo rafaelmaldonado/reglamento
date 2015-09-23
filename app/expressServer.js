@@ -2,6 +2,7 @@ var express = require('express');
 var swig = require('swig');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
+var compress = require('compression');
 var home = require('./controllers/home');
 var article = require('./controllers/article');
 var search = require('./controllers/search');
@@ -11,6 +12,7 @@ var logger = require('../utils/logger.js');
 module.exports =  ExpressServer = function(config){
     config = config || {};
     this.expressServer = express();
+    this.expressServer.use(compress());
     this.expressServer.engine('html', swig.renderFile);
     this.expressServer.set('view engine', 'html');
     this.expressServer.set('views', __dirname + '/views');
@@ -19,6 +21,7 @@ module.exports =  ExpressServer = function(config){
         extended: true
     }));
     this.expressServer.use(morgan('combined', {stream: logger.stream}));
+    this.expressServer.use(express.static('static', { maxAge: 86400000 }));
     swig.setDefaults({varControls:['[[',']]']});
     if(config.mode == 'development'){
         this.expressServer.set('view cache', false);
