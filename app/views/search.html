@@ -1,22 +1,21 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<ul>
-{% for item in list %}
-	<li>
-		<a href="/article/reglamento-transito-distrito-federal-articulo-[[item.id]].html">Artículo [[item.id]]</a>
-		<span>{% autoescape false %} [[item.text]] {% endautoescape %}</span>
-	</li>
-{% endfor %}
-</ul>
-{% if empty %}
-	[[empty]]
-{% else %}
-	{% if prev >= 0 %}
-		<a href="/search?q=[[query]]&p=[[prev]]"><</a>
+	<ul>
+	{% for item in list %}
+		<li>
+			<a href="/article/reglamento-transito-distrito-federal-articulo-[[item.id]].html">Artículo [[item.id]]</a>
+			<span>{% autoescape false %} [[item.text]] {% endautoescape %}</span>
+		</li>
+	{% endfor %}
+	</ul>
+	{% if empty %}
+		[[empty]]
+	{% else %}
+		{% if prev >= 0 %}
+			<a href="/search?q=[[query]]&p=[[prev]]"><</a>
+		{% endif %}
+		{% if hasnext %}
+			<a href="/search?q=[[query]]&p=[[next]]">Siguiente</a>
+		{% endif %}
 	{% endif %}
-	{% if hasnext %}
-		<a href="/search?q=[[query]]&p=[[next]]">Siguiente</a>
-	{% endif %}
-{% endif %}
 {% endblock %}
