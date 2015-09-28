@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
-{% block content%}
-	<span>[[text]]</span>
+{% block content %}
+	{% autoescape false %}
+		[[text]]
+	{% endautoescape %}
 {% endblock %}
