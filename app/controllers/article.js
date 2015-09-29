@@ -9,7 +9,7 @@ module.exports = function (req, res){
 		if ((/^\d+$/).test(page[i]))
 			id = page[i];
 	if (id && id > 0 && id < 71){
-		var content = fs.readFileSync(path.dirname(require.main.filename) + '/app/views/art_' + id + '.html', 'utf8');
+		var content = fs.readFileSync(path.dirname(require.main.filename) + '/app/views/articles/art_' + id + '.html', 'utf8');
 		res.render('../views/article', {text: content});
 	} else
 		res.render('../views/error');
