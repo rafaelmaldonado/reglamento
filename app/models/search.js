@@ -1,9 +1,10 @@
 var mysql = require('mysql');
+var dbconf = require('../../config/db');
 var pool = mysql.createPool({
-	host: 'localhost',
-	user: 'root',
-	password: 'safe',
-	database: 'reglamento',
+	host: dbconf.host,
+	user: dbconf.user,
+	password: dbconf.pass,
+	database: dbconf.base,
 	multipleStatements: true
 });
 module.exports = function(words, offset, callback){
