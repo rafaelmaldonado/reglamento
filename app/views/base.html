@@ -1,21 +1,23 @@
 <!DOCTYPE HTML>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!--<link rel="stylesheet" type="text/css" href="../css/reset.css">-->
-	<link rel="icon" type="image/x-icon" href="../image/favicon.ico">
-	<title>Buscador</title>
-</head>
-<body>
-	<nav><a href="/">Inicio</a></nav>
-	<section>
-		<h1>Reglamento de Tránsito del Distrito Federal</h1>
-		<form action="/search" id="search-form" method="GET">
-			<input type="text" id="q" name="q" autofocus placeholder="Buscar en el reglamento">
-			<input type="submit" value="Buscar">
-		</form>
-	</section>
-{% block content %}{% endblock %}
-</body>
+<html lang="es">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Buscador en el Reglamento de Tránsito del Distrito Federal">
+		<meta name="author" content="Rafael Maldonado">
+		<!--<link rel="stylesheet" type="text/css" href="../css/reset.css">-->
+		<link rel="icon" type="image/x-icon" href="../image/favicon.ico">
+		<title>Buscador | Reglamento de Tránsito del Dsitrito Federal</title>
+	</head>
+	<body>
+		<nav><a href="/">Inicio</a></nav>
+		<section>
+			<h1>Reglamento de Tránsito del Distrito Federal</h1>
+			<form action="/search" id="search-form" method="GET">
+				<input type="text" id="q" name="q" autofocus placeholder="Buscar en el reglamento">
+				<input type="submit" value="Buscar">
+			</form>
+		</section>
+	{% block content %}{% endblock %}
+	</body>
 </html>
