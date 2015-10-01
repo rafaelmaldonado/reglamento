@@ -36,6 +36,9 @@ module.exports =  ExpressServer = function(config){
     this.expressServer.get('/article/:article', function (req, res){
         article(req, res);
     });
+    this.expressServer.get('/google083d2b55760cc10e.html', function (req, res){
+        res.send('google-site-verification: google083d2b55760cc10e.html');
+    });
     this.expressServer.get('*', function (req, res){
         error(req, res);
     });
