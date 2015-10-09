@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Buscador en el Reglamento de Tránsito del Distrito Federal 2015. Encontrarás todos los artículos del reglamento de tránsito de la Ciudad de México. Ideal para consultar al momento de ser detenido y no conocer las normas">
+		<meta name="description" content="Buscador en el Reglamento de Tránsito del Distrito Federal 2015. Encontrarás todos los artículos del reglamento de tránsito de la Ciudad de México. Ideal para consultar al momento de ser detenido y no conocer las normas. Busca palabras clave que se encuentren en un artículo del nuevo reglamento del DF. Esta herramienta de búsqueda te ayudará a encontrar rápidamente las multas por violar alguna de las reglas establecidas.">
 		<meta name="author" content="Rafael Maldonado">
 		<!--<link rel="stylesheet" type="text/css" href="../css/reset.css">-->
 		<link rel="icon" type="image/x-icon" href="../image/favicon.ico">
@@ -12,12 +12,21 @@
 	<body>
 		<nav><a href="/">Inicio</a></nav>
 		<section>
-			<h1>Buscador del Reglamento de Tránsito del Distrito Federal</h1>
+			<h1>Buscador</h1>
+			<h2>Reglamento de Tránsito del Distrito Federal</h2>
 			<form action="/search" id="search-form" method="GET">
 				<input type="text" id="q" name="q" autofocus placeholder="Buscar en el reglamento">
 				<input type="submit" value="Buscar">
 			</form>
 		</section>
-	{% block content %}{% endblock %}
+		{% block content %}{% endblock %}
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-68638615-1', 'auto');
+			ga('send', 'pageview');
+		</script>
 	</body>
 </html>
